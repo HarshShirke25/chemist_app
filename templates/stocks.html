@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<header>
+
+    <div class="left_area">
+        <h2>Med<span>!</span>track</h2>
+    </div>
+    <div class="right_area">
+        <a href="{% url 'login' %}" class="login_btn">logout</a>
+        <a href="{% url 'registration' %}" class="register_btn">Register</a>
+    </div>
+
+
+</header>
+<!-- sidebar -->
+
+<div class="sidebar">
+
+    <center><img src="../static/css/images/logo.jpg" class="profile_image" alt=""></center>
+
+
+    <a href="#"><i class='bx bxs-dashboard'></i><span>Dashboard</span> </a>
+    <a href="#"><i class='bx bxs-info-circle'></i><span>Medical Stores</span></a>
+    <a href="#"><i class='bx bx-coin-stack'></i><span>Stock</span></a>
+    <a href="#"><i class='bx bxs-home-smile'></i><span>About us</span></a>
+    <a href="#"><i class='bx bxs-info-circle'></i><span>Info</span></a>
+</div>
+<div class="content">
+    <img src="../static/css/images/2.jpg" alt="">
+</div>
+{% endblock %}
