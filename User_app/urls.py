@@ -5,9 +5,9 @@ from .import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('',views.index,name="index"),
-    path('login',views.login,name="login"),
-    path('registration',views.registration,name="registration"),
-    path('stocks',views.stocks,name="stocks")
+    path('',views.Userindex,name="Userindex"),
+    path('stocks',views.stocks,name="stocks"),
+    path('medicalstores',views.medicalstores,name="medicalstores"),
+    path('userinfo',views.userinfo,name="userinfo")
    
 ]

@@ -26,6 +26,9 @@
           <div class="right_area">
               <a href="{% url 'logout' %}" class="login_btn">Logout</a>
           </div>
+         
+          
+          
         </header>
         <!-- sidebar -->
 
@@ -34,21 +37,15 @@
             <center><img src="../static/css/images/logo.jpg" class="profile_image" alt=""></center>
             
             
-            <a href="#"><i class='bx bxs-dashboard'></i>Home</a>
+            <a href="{% url 'medindex' %}"><i class='bx bxs-dashboard'></i>Home</a>
            
-            <a href="{% url 'medicalstores' %}"><i class='bx bxs-info-circle'></i><span>Medical Stores</span></a>
-            <a href="{% url 'stocks' %}" class="stocks"><i class='bx bx-coin-stack'></i><span>Stock</span></a>
-            <a href="#"><i class='bx bxs-home-smile'></i><span>About us</span></a>
-            <a href="{% url 'userinfo' %}"><i class='bx bxs-info-circle'></i><span>Info</span></a>
+            <a href="{% url 'orders' %}"><i class='bx bxs-info-circle'></i><span>Orders</span></a>
+            <a href="{% url 'inventory' %}" class="stocks"><i class='bx bx-coin-stack'></i><span>Inventory</span></a>
+            <a href="{% url 'info' %}"><i class='bx bxs-home-smile'></i><span>Stores Info</span></a>
+            
            
         </div>
         {% block body %}
-
-        {% for message in messages  %}
-         <p style="text-align: center; padding-top: 10%;">{{message}}</p>
-        {% endfor %}
-
-       
 
         
         {% endblock body %}

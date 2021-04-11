@@ -1,0 +1,13 @@
+{% extends 'medical_index.html' %}
+{% load static %}
+
+{% block body %}
+{% for message in messages  %}
+
+<p style="text-align:center; padding-top:10%;">{{message}}</p>
+{% endfor %}
+
+<h1 style="text-align: center; padding-top: 20%;">Medical Home page</h1>
+
+{% endblock body %}
+

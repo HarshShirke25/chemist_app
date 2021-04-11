@@ -1,0 +1,50 @@
+#Med{
+    padding: 10%;
+    background-color: #dbf6e9;
+}
+
+.img {
+    height: 400px;
+    width: 550px;
+   
+    margin-right: 10px;
+    margin-bottom: 4%;
+    border: 1px solid black;
+    border-radius: 8%;
+}
+
+#Main{
+    background-image: linear-gradient(to right,rgb(138, 241, 198),rgb(81, 81, 216));
+    
+}
+.btn1{
+    position: relative;
+    left: 49%;
+    margin-top: 3%;
+}
+
+.btn2{
+    position: relative;
+    left: 30%;
+    margin-top: 3%;
+}
+.btn3{
+    position: relative;
+    left: 10%;
+    margin-top: 3%;
+}
+.cnt{
+    position: relative;
+    left: 80%;
+}
+ .rg-box {
+     padding-top: 15%;
+     padding-bottom: 16%;
+     background-image: linear-gradient(to right,rgb(81, 81, 216),rgb(138, 241, 198));
+     border: 2px solid black;
+     border-radius: 10%;
+ }
+
+ .rgbtn {
+     margin-left: 33%;
+ }

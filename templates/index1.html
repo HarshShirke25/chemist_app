@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #7868e6;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="font-size:40px; font-weight:bolder">MediTrack</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      <section id="Main" style="background-color: #e4fbff;">
+<div class="container-fluid">
+
+
+   <div class="box1" style="padding:9%;">
+
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: 50px;">Welcome to the MediTrack App!</h1>
+        <p style="font-size: 25px; font-family: 'Montserrat', sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quae, sed mollitia error reprehenderit, voluptatem minima, veniam aliquam tempore omnis at? Veniam in velit ullam, accusamus dolores laboriosam explicabo dicta sapiente labore dolorum quaerat minus obcaecati et, quo molestiae sequi ut. Aliquid excepturi sequi tenetur ratione, ut quisquam enim incidunt?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore soluta maxime numquam dolorem eum, debitis, similique facilis ex eaque cum vero ea sapiente ullam nostrum provident quam! Culpa alias nobis, minima, nesciunt ducimus cumque dignissimos suscipit cupiditate, saepe quos nisi odio! Dolore dolorem eius nemo consequatur aut laudantium itaque quos odio qui optio quidem facilis fuga corporis debitis eaque pariatur quam, beatae illum ex mollitia. Fugit totam labore recusandae culpa iste quos vel, sed in illo, sunt vero ea ipsum at alias molestiae veritatis, nostrum nulla voluptate? Consequatur quas sunt, enim error pariatur molestias ullam ea, quo esse, culpa quaerat?</p>
+        
+    </div>
+    
+</div>
+<section id="Main2" style="background-color: white;">
+    <div class="container-fluid">
+    
+    
+       <div class="box1" style="padding:10%;">
+    
+            <h1 style="text-align: center; font-family: Poppins;">Login to your MediTrack Account!</h1>
+            <a href="{% url 'registerUser' %}" class="btn btn-lg btn-primary btn1"><i class="fas fa-user-plus"></i></i>Register for User</a>
+            <a href="{% url 'registerMed' %}" class="btn btn-lg btn-primary btn3"><i class="fas fa-user-plus"></i></i>Register for Medical</a>
+            <a href="{% url 'login' %}" class="btn btn-lg btn-dark btn2"><i class="fas fa-sign-in-alt"></i>Login</a>
+            
+        </div>
+        
+    </div>
+</section>
+
+</body>
+</html>

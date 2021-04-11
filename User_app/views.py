@@ -1,14 +1,18 @@
 
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-def index(request):
+
+@login_required
+def Userindex(request):
     return render(request,'index.html')
 
-def registration(request):
-    return render(request,'registration.html')
-
-def login(request):
-    return render(request,'login.html')
-
+@login_required
 def stocks(request):
-    return render(request,'stocks.html')
+    return render(request,'user/stocks.html')
+
+def userinfo(request):
+    return render(request,"user/userInfo.html")
+
+def medicalstores(request):
+    return render(request,"user/medicalstores.html")

@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'User_app',
-    'meditrack'
+    'medical',
+    'meditrack',
+    'auth_app'
 ]
 
 MIDDLEWARE = [
