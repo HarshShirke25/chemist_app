@@ -45,7 +45,7 @@ def registerMed(request):
         my_group[0].user_set.add(user)
         user.save()
         
-    return render(request,"auth/med_register.html")
+    return render(request,"auth/login.html")
 
 def registerUser(request):
     if request.method == "GET":
@@ -59,7 +59,7 @@ def registerUser(request):
         my_group = Group.objects.get_or_create(name="USER")
         my_group[0].user_set.add(user)
         user.save()
-    return render(request,"auth/registration.html")
+    return render(request,"auth/login.html")
 
 def logout(request):
     auth.logout(request)

@@ -1,49 +1,35 @@
+{% extends 'medical_index.html' %}
 {% load static %}
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block body %}
 
-    <link rel="stylesheet" href="{% static "css/index.css" %}">
-    <link rel="stylesheet" href="{% static "css/registration.css" %}">
+
+<h1 style="padding-top:7%;">Medical Information</h1>
+<div style=" position: relative; left: 43%;">
     
-     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-
-     <title>Meditrack!</title>
- </head>
- <body style="background-image: linear-gradient(rgb(97, 97, 206),powderblue); background-repeat: no-repeat;">
-    
-    
-      <header>
-          
-          <div class="left_area">
-              <h2>Med<span>!</span>track</h2>
-          </div>
-          
-          
-          
-       </header>
-
-       <div style=" padding-top: 10%;">
            <form action="{% url 'info' %}" method="POST">
-               <label for="name_of_med">NAME OF MEDICAL:</label>
-               <input type="text" name="name_of_med"><br><br>
-               <label for="name_of_med">ADDRESS:</label>
-               <input type="text" name="address"><br><br>
-               <label for="name_of_med">CONTACT:</label>
-               <input type="text" name="contact"><br><br>
-               <label for="name_of_med">REGISTRATION NUMBER:</label>
-               <input type="text" name="reg_num"><br><br>
-               <label for="name_of_med">ESTABLISHMENT YEAR:</label>
-               <input type="text" name="est"><br><br>
+               {% csrf_token %}
+               <label for="name_of_med">NAME OF MEDICAL:</label><br>
+               <input type="text" name="name_of_med" value="{{med_info.name_of_med}}"><br><br>
+               <label for="name_of_med">ADDRESS:</label><br>
+               <input type="text" name="address" value="{{med_info.address}}"><br><br>
+               <label for="name_of_med">CONTACT:</label><br>
+               <input type="text" name="contact" value="{{med_info.contact}}"><br><br>
+               <label for="name_of_med">REGISTRATION NUMBER:</label><br>
+               <input type="text" name="reg_num" value="{{med_info.reg_num}}"><br><br>
+               <label for="name_of_med">ESTABLISHMENT YEAR:</label><br>
+               <input type="text" name="est" value="{{med_info.est}}"><br><br>
 
-               <button type="submit">Save</button>
+               <button type="submit" class="btn btn-lg btn-primary">Save</button>
 
            </form>
        </div>
 
-</body>
-</html>
+
+
+
+{% endblock body %}
+
+
+
+
+       
