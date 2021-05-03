@@ -8,7 +8,16 @@ import datetime
 
 @login_required
 def medindex(request):
-    return render(request,"medical/home.html")
+    user1 = User.objects.get(username=request.user.username)
+    if medical.objects.filter(user = user1).exists():
+        med_info = medical.objects.get(user = user1)
+        return render(request,"medical/home.html",{
+            'med_info':med_info
+    
+        })
+    else:
+        return render(request,"medical/home.html")
+    
 
 @login_required
 def order(request):
@@ -24,12 +33,14 @@ def inven(request):
             'stock_infos':stock_infos,
             'date':date
         })
+        
     if request.method == "POST":
         user1 = User.objects.get(username=request.user.username)
         nameMedicine = request.POST['nameMedicine']
         quantity = request.POST['quantity']
+        price = request.POST['price']
         
-        m = MedStocks(user=user1,name=nameMedicine,quantity=quantity)
+        m = MedStocks(user=user1,name=nameMedicine,quantity=quantity,price=price)
         m.save()
         return redirect("inventory")
         
@@ -39,18 +50,34 @@ def inven(request):
 def info(request):
     if request.method == "GET":
         user1 = User.objects.get(username=request.user.username)
-        med_info = medical.objects.get(user=user1)
-        return render(request,"medical/info.html",{
-            'med_info':med_info
-        })
+        if medical.objects.filter(user = user1).exists():
+            med_info = medical.objects.get(user=user1)
+            return render(request,"medical/info.html",{               
+                'med_info':med_info
+           })   
+        else:
+            return render(request,"medical/info.html") 
+        
     if request.method == "POST":
         user1 = User.objects.get(username=request.user.username)
-        name_of_med = request.POST['name_of_med']
-        address = request.POST['address']
-        contact = request.POST['contact']
-        reg_num = request.POST['reg_num']
-        est = request.POST['est']
-        med = medical(user=user1,name_of_med=name_of_med,address=address,contact=contact,reg_num=reg_num,est=est)
-        med.save()
-        return render(request,"medical/info.html")
+        if medical.objects.filter(user=user1).exists():
+            med_info = medical.objects.get(user=user1)
+            med_info.name_of_med = request.POST['name_of_med']
+            med_info.address = request.POST['address']
+            med_info.contact = request.POST['contact']
+            med_info.reg_num = request.POST['reg_num']
+            med_info.est = request.POST['est']
+            med_info.save()
+            return redirect("info")
+        else:
+            name_of_med = request.POST['name_of_med']
+            address = request.POST['address']
+            contact = request.POST['contact']
+            reg_num = request.POST['reg_num']
+            est = request.POST['est']
+            med = medical(user=user1,name_of_med=name_of_med,address=address,contact=contact,reg_num=reg_num,est=est)
+            med.save()
+            return redirect("info")
+            
+        
     return render(request,"medical/info.html")

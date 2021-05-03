@@ -3,21 +3,21 @@
 {% block body %}
 
 
-<h1 style="padding-top:7%;">Medical Information</h1>
+<h1 style="padding-top:7%; margin-left: 9%; border: 5px solid black;">Medical Information</h1>
 <div style=" position: relative; left: 43%;">
     
            <form action="{% url 'info' %}" method="POST">
                {% csrf_token %}
-               <label for="name_of_med">NAME OF MEDICAL:</label><br>
-               <input type="text" name="name_of_med" value="{{med_info.name_of_med}}"><br><br>
-               <label for="name_of_med">ADDRESS:</label><br>
-               <input type="text" name="address" value="{{med_info.address}}"><br><br>
-               <label for="name_of_med">CONTACT:</label><br>
-               <input type="text" name="contact" value="{{med_info.contact}}"><br><br>
-               <label for="name_of_med">REGISTRATION NUMBER:</label><br>
-               <input type="text" name="reg_num" value="{{med_info.reg_num}}"><br><br>
-               <label for="name_of_med">ESTABLISHMENT YEAR:</label><br>
-               <input type="text" name="est" value="{{med_info.est}}"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>NAME OF MEDICAL:</b></label><br>
+               <input type="text" name="name_of_med" value="{{med_info.name_of_med}}" style="padding-right:10%;"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>ADDRESS:</b></label><br>
+               <input type="text" name="address" value="{{med_info.address}}" style="padding-right:10%;"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>CONTACT:</b></label><br>
+               <input type="text" name="contact" value="{{med_info.contact}}" style="padding-right:10%;"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>REGISTRATION NUMBER:</b></label><br>
+               <input type="text" name="reg_num" value="{{med_info.reg_num}}" style="padding-right:10%;"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>ESTABLISHMENT YEAR:</b></label><br>
+               <input type="text" name="est" value="{{med_info.est}}" style="padding-right:10%;"><br><br>
 
                <button type="submit" class="btn btn-lg btn-primary">Save</button>
 

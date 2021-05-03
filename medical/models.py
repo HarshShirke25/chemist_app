@@ -18,6 +18,7 @@ class MedStocks(models.Model):
     user = models.ForeignKey(to=User,default=False,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     quantity = models.BigIntegerField(default=0)
+    price = models.BigIntegerField(default=0)
     
     def __str__(self):
         return f"{self.user.username}:{self.name}"
