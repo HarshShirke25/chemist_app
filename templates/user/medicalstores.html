@@ -7,11 +7,12 @@
 <div class="container-fluid" style="padding:3% 2% 0 28%;">
     <div class="row">
         {% for medical in medicals  %}
-        <div class="col-lg-3" style="text-align:center; border-radius:4%; background-color: powderblue; margin: 0 2% 3% 1%; padding-bottom: 150px">
-            <p style="font-size: larger; text-align: center;">{{medical.name_of_med}}</p>
-            <p style="font-size: larger; text-align: center;">{{medical.address}}</p>
-            <p style="font-size: larger; text-align: center;">{{medical.est}}</p>
-            <a type="button" href="{% url 'medinfo' medical.id %}" class="btn btn-md btn-primary">Info</a>
+        <div class="col-lg-3" style="box-shadow:1px 1px black; text-align:center; border-radius:10%; background-image: linear-gradient(rgb(163, 163, 228),powderblue); margin: 0 2% 3% 1%; padding-bottom: 110px">
+            <p style="font-size: larger; text-align: center; margin-top: 10%; position: relative; top: 20%;"><b>{{medical.name_of_med}}</b></p>
+            <p style="font-size: larger; text-align: center; position: relative; top: 20%;">Address:{{medical.address}}</p>
+            <p style="font-size: larger; text-align: center; position: relative; top: 20%;">Established:{{medical.est}}</p>
+            <p style="font-size: larger; text-align: center; position: relative; top: 20%;">Contact:{{medical.contact}}</p>
+            <a type="button" href="{% url 'medinfo' medical.id %}" style="position: relative; top: 25%; border-radius: 20%;" class="btn btn-lg btn-primary">Info</a>
 
         </div>
         {% endfor %}

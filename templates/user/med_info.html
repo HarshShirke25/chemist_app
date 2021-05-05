@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block body %}
-<div style="background-image: linear-gradient(blue,powderblue);">
+<div style="background-image: linear-gradient(to left,rgb(131, 131, 209),powderblue);">
 
 <h1 style="padding-top:6%; margin-left:5%; font-family: Verdana, Geneva, Tahoma, sans-serif;"><b>{{med.name_of_med}}</b></h1>
 <h1 style="padding-top:2%; margin-left:5%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Address:{{med.address}}.</h1>
+<h1 style="padding-top:2%; margin-left:5%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Contact:{{med.contact}}.</h1>
 <hr style="border:2px solid black;">
 </div>
 
@@ -41,7 +42,7 @@
                 </tbody>
               </table>
 
-              <button type="submit" class="btn btn-lg btn-primary" style="position: relative; left: 36%; margin-top: 5%;">Buy Medicines</button>
+              <a type="submit" href="{% url 'buymed' med.id %}" class="btn btn-lg btn-primary" style="position: relative; left: 36%; margin-top: 5%;">Buy Medicines</a>
     
 
   </div>

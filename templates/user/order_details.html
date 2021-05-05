@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+<h1 style="padding-top:7%; margin-left:17%; font-family:Verdana, Geneva, Tahoma, sans-serif;">Your Order has been successfully initiated! </h1>
+<h1 style="padding-top:2%; margin-left:17%; font-family:Verdana, Geneva, Tahoma, sans-serif;">Your Order Details are as follows:</h1>
+
+<div style="padding-left: 20%; padding-right: 5%; padding-top: 2%;">
+
+    <table class="table">
+        <thead>
+          <tr class="table-primary">
+           
+            <th scope="col">Medicine</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for ord in ords  %}
+
+        <tr>
+            
+            <td><b>{{ord.name}}</b></td>
+            <td>{{ord.quantity}}</td>
+            <td>{{ord.price}}</td>
+            <td>{{date}}</td>
+        
+          </tr>
+        
+        {% endfor %}
+
+          
+          
+         
+        </tbody>
+      </table>
+
+</div>
+
+<h1 style="padding-top:6%; margin-left:17%; font-family:Verdana, Geneva, Tahoma, sans-serif;"> Your Order will be reached to you soon on your Address at {{u.address}}. </h1>
+<h1 style="padding-top:1%; margin-left:17%; font-family:Verdana, Geneva, Tahoma, sans-serif;">Thank you for Ordering from {{med.name_of_med}}!</h1>
+
+{% endblock body %}

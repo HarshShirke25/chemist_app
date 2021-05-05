@@ -72,8 +72,8 @@ def info(request):
             name_of_med = request.POST['name_of_med']
             address = request.POST['address']
             contact = request.POST['contact']
-            reg_num = request.POST['reg_num']
-            est = request.POST['est']
+            reg_num = request.POST.get('reg_num')
+            est = request.POST.get('est')
             med = medical(user=user1,name_of_med=name_of_med,address=address,contact=contact,reg_num=reg_num,est=est)
             med.save()
             return redirect("info")

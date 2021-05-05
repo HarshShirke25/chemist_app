@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+
+<h1 style="padding-top:6%; margin-left: 5%;">{{med.name_of_med}}</h1>
+
+<div style="padding-left: 20%; padding-right: 5%;">
+
+    <table class="table">
+        <thead>
+          <tr>
+           
+            <th scope="col">Medicine</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for med_stock in med_stocks  %}
+
+        <tr>
+            
+            <td>{{med_stock.name}}</td>
+            <td>{{med_stock.quantity}}</td>
+            <td>{{med_stock.price}}</td>
+        
+          </tr>
+        
+        {% endfor %}
+
+          
+          
+         
+        </tbody>
+      </table>
+
+</div>
+
+<form action="{% url 'buymed' med.id %}" method="post">
+{% csrf_token %}
+<label for="medicine" style="position: relative; left: 48%; margin-top: 4%;">Choose Medicine</label><br>
+<select name="medicine"  style="position: relative; left: 47.5%;">
+    {% for med_stock in med_stocks  %}
+
+    <option value="{{med_stock.name}}">{{med_stock.name}}</option>
+    
+    {% endfor %}
+</select><br>
+<label for="quantity" style="position: relative; left: 50%; margin-top: 1%;">Quantity</label><br>
+<input type="number" name="quantity" style="position: relative; left: 46%; "><br>
+<button type="submit" style="position: relative; left: 50%; margin-top: 1%;" class="btn btn-md btn-primary">Add</button>
+
+
+
+</form>
+
+<div class="col-md-6" style="padding-right: 7%; padding-left: 1%; margin: 0 0 1% 52%; position: relative; right: 20%;">
+            <table class="table table-striped table-primary">
+                <thead>
+                  <tr class="table-success">
+                    <th scope="col" style="font-size:large;">Name of Medicine</th>
+                    <th scope="col" style="font-size:large;">Quantity</th>
+                    <th scope="col" style="font-size:large;">Price</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                {% for ord in ords  %}
+                <tr> 
+                    <td><b>{{ord.name}}</b></td>
+                    <td><b>{{ord.quantity}}</b></td>
+                    <td><b>{{ord.price}}</b></td>
+                    
+                  </tr>
+                {% endfor %}
+                  
+                </tbody>
+              </table>
+
+
+              <a href="{% url 'order' med.id %}" type="submit" style="position: relative; left: 36%; margin-top: 1%;" class="btn btn-md btn-primary">Confirm Order</button>
+
+
+
+
+
+
+
+
+{% endblock body %}

@@ -2,6 +2,22 @@
 {% load static %}
 {% block body  %}
 
-<h1 style="padding-top:6%;">UserInfo Page</h1>
+<h1 style="padding-top:7%; margin-left: 9%; border: 5px solid black;">Your Information</h1>
+<div style=" position: relative; left: 43%;">
+    
+           <form action="{% url 'userinfo' %}" method="POST">
+               {% csrf_token %}
+               <label for="name_of_med" style="font-size: larger;"><b>NAME:</b></label><br>
+               <input type="text" name="name_user" value="{{user1.name}}" style="padding-right:10%;"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>ADDRESS:</b></label><br>
+               <input type="text" name="add" value="{{user1.address}}" style="padding-right:10%;"><br><br>
+               <label for="name_of_med" style="font-size: larger;"><b>CONTACT:</b></label><br>
+               <input type="text" name="cont" value="{{user1.contact}}" style="padding-right:10%;"><br><br>
+            
+
+               <button type="submit" class="btn btn-lg btn-primary">Save</button>
+
+           </form>
+       </div>
 
 {% endblock  %}

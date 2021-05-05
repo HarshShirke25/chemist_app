@@ -2,6 +2,34 @@
 {% load static %}
 
 {% block body %}
-<h1 style="padding-top:6%;">Stocks</h1>
+<h1 style="padding-top:6%; margin-left:7%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Stocks</h1>
+<hr>
+
+<div style="padding-left: 20%; padding-right: 5%; padding-top:4%;">
+
+    <table class="table">
+        <thead class="table-success">
+          <tr>
+           
+            <th scope="col">Medicine</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for ord in ords  %}
+
+        <tr class="table-primary">
+            <td><b>{{ord.name}}</b></td>
+            <td><b>{{ord.quantity}}</b></td>
+          </tr>
+        
+        {% endfor %}
+ 
+        </tbody>
+      </table>
+
+</div>
+
 
 {% endblock body %}

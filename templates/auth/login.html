@@ -32,7 +32,7 @@
       {% csrf_token %}
       <a href="{% url 'index' %}" class="btn btn-lg btn-outline-dark btn-block" style="margin-bottom: 7%; ">Home</a>
       <img class="mb-4" src="{% static 'css/images/logo.jpg' %}" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Log In to your Account!</h1>
+      <h1 class="h3 mb-3 font-weight-normal"><b>Log In to your Account!</b></h1>
       <label for="inputEmail" class="sr-only">USERNAME</label>
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
       <label for="inputPassword" class="sr-only">PASSWORD</label>
