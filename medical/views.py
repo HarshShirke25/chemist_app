@@ -13,7 +13,6 @@ def medindex(request):
         med_info = medical.objects.get(user = user1)
         return render(request,"medical/home.html",{
             'med_info':med_info
-    
         })
     else:
         return render(request,"medical/home.html")

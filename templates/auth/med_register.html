@@ -18,7 +18,9 @@
 <body class="text-center" style="background-image: linear-gradient(to left,rgb(117, 117, 212),powderblue);">
     <form class="form-signin" method="POST" action="{% url 'registerMed' %}">
       {% csrf_token %}
+      <a href="{% url 'index' %}" class="btn btn-lg btn-outline-dark btn-block" style="margin-bottom: 7%; ">Home</a>
       <img class="mb-4" src="{% static 'css/images/logo.jpg' %}" alt="" width="72" height="72">
+      
       <h1 class="h3 mb-3 font-weight-normal">Register for your Medical Account!</h1>
       <label for="inputEmail" class="sr-only">EMAIL</label>
       <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
@@ -28,6 +30,8 @@
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      <a href="{% url 'login' %}" class="btn btn-lg btn-dark btn-block">Log in</a>
+      
       
     </form>
   </body>

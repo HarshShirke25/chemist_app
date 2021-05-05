@@ -8,6 +8,7 @@ urlpatterns = [
     path('',views.Userindex,name="Userindex"),
     path('stocks',views.stocks,name="stocks"),
     path('medicalstores',views.medicalstores,name="medicalstores"),
-    path('userinfo',views.userinfo,name="userinfo")
+    path('userinfo',views.userinfo,name="userinfo"),
+    path('med-info/<int:pk>',views.medinfo,name="medinfo")
    
 ]

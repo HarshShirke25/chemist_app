@@ -82,11 +82,8 @@ WSGI_APPLICATION = 'meditrack.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DB3',
-        'PASSWORD':'1234',
-        'USER':'postgres',
-        'HOST':'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

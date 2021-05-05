@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+<div style="background-image: linear-gradient(blue,powderblue);">
+
+<h1 style="padding-top:6%; margin-left:5%; font-family: Verdana, Geneva, Tahoma, sans-serif;"><b>{{med.name_of_med}}</b></h1>
+<h1 style="padding-top:2%; margin-left:5%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Address:{{med.address}}.</h1>
+<hr style="border:2px solid black;">
+</div>
+
+
+
+{% comment %} {% for med_stock in med_stocks  %}
+
+<h1 style="padding-top:6%">{{med_stock.name}}</h1>
+
+
+{% endfor %} {% endcomment %}
+
+ <div class="col-md-6" style="padding-right: 7%; padding-left: 1%; margin: 3% 0 1% 52%; position: relative; right: 20%;">
+            <table class="table table-striped table-primary">
+                <thead>
+                  <tr class="table-success">
+                    <th scope="col" style="font-size:large;">Name of Medicine</th>
+                    <th scope="col" style="font-size:large;">Quantity</th>
+                    <th scope="col" style="font-size:large;">Price</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                {% for med_stock in med_stocks  %}
+                <tr> 
+                    <td><b>{{med_stock.name}}</b></td>
+                    <td><b>{{med_stock.quantity}}</b></td>
+                    <td><b>{{med_stock.price}}</b></td>
+                    
+                  </tr>
+                {% endfor %}
+                  
+                </tbody>
+              </table>
+
+              <button type="submit" class="btn btn-lg btn-primary" style="position: relative; left: 36%; margin-top: 5%;">Buy Medicines</button>
+    
+
+  </div>
+  
+        
+
+{% endblock body %}

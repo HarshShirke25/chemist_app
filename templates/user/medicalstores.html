@@ -1,5 +1,47 @@
 {% extends 'index.html' %}
 {% load static %}
-{% block content  %}
+{% block body  %}
+
+
+<h1 style="padding-top:6%; margin-left:10%">Medical Stores</h1>
+<div class="container-fluid" style="padding:3% 2% 0 28%;">
+    <div class="row">
+        {% for medical in medicals  %}
+        <div class="col-lg-3" style="text-align:center; border-radius:4%; background-color: powderblue; margin: 0 2% 3% 1%; padding-bottom: 150px">
+            <p style="font-size: larger; text-align: center;">{{medical.name_of_med}}</p>
+            <p style="font-size: larger; text-align: center;">{{medical.address}}</p>
+            <p style="font-size: larger; text-align: center;">{{medical.est}}</p>
+            <a type="button" href="{% url 'medinfo' medical.id %}" class="btn btn-md btn-primary">Info</a>
+
+        </div>
+        {% endfor %}
+        {% comment %} <div class="col-lg-3" style="background-color: powderblue; margin: 0 3% 1% 1%; padding-bottom: 300px;">
+            abcd
+
+
+        </div>
+        <div class="col-lg-3" style="background-color: powderblue; margin: 0 3% 1% 1%; padding-bottom: 300px">
+            abcd
+
+
+        </div>
+        <div class="col-lg-3" style="background-color: powderblue; margin: 0 3% 1% 1%; padding-bottom: 300px">
+            abcd
+
+
+        </div>
+        <div class="col-lg-3" style="background-color: powderblue; margin: 0 3% 1% 1%; padding-bottom: 300px">
+            abcd
+
+
+        </div>
+        <div class="col-lg-3" style="background-color: powderblue; margin: 0 3% 1% 1%; padding-bottom: 300px">
+            abcd
+
+
+        </div> {% endcomment %}
+
+    </div>
+</div>
 
 {% endblock  %}
