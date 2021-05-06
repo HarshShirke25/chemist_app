@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from . models import medical,MedStocks
 import datetime
+from User_app.models import ordersInfo,userInfo
 
 # Create your views here.
 
@@ -20,7 +21,18 @@ def medindex(request):
 
 @login_required
 def order(request):
-    return render(request,"medical/order.html")
+    if request.method == "GET":
+        user1 = User.objects.get(username=request.user.username)
+        if medical.objects.filter(user = user1).exists():
+            med = medical.objects.get(user=user1)
+            ords = ordersInfo.objects.filter(med=med)
+            return render(request,"medical/order.html",{
+                'ords':ords,
+           })
+        else:
+            return render(request,"medical/order.html")
+            
+        
 
 @login_required
 def inven(request):

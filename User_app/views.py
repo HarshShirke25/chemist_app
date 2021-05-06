@@ -24,12 +24,15 @@ def stocks(request):
 def userinfo(request):
     if request.method == "GET":
         user = User.objects.get(username=request.user.username)
-        user1 = userInfo.objects.get(user=user)
+        if userInfo.objects.filter(user = user).exists():
+            user1 = userInfo.objects.get(user=user)
+            return render(request,"user/userInfo.html",{               
+               'user1':user1
+             })
+        else:
+            return render(request,"user/userInfo.html")
+            
         
-        
-        return render(request,"user/userInfo.html",{
-            'user1':user1
-        })
     if request.method == "POST":
         user = User.objects.get(username=request.user.username)
         if userInfo.objects.filter(user=user).exists():
@@ -57,8 +60,7 @@ def medicalstores(request):
       })
         
 def medinfo(request,pk):
-    if medical.objects.filter(id = pk).exists():
-        med = medical.objects.get(id = pk)
+    
     if request.method == "GET":
         med = medical.objects.get(id = pk)
         med_stocks = MedStocks.objects.filter(user = med.user)
@@ -91,30 +93,37 @@ def buymed(request,pk):
         user1 = User.objects.get(username=request.user.username)
         med = medical.objects.get(id = pk)
         med_stocks = MedStocks.objects.filter(user = med.user)
+        u = userInfo.objects.get(user=user1)
+        fname = u.name
         medicine = request.POST.get('medicine')
         quantity = request.POST.get('quantity')
+        
         for med_stock in med_stocks:
             if medicine == med_stock.name:
                 og_price = med_stock.price
                 med_stock.quantity = int(med_stock.quantity)-int(quantity)
                 med_stock.save()
         price = int(og_price)*int(quantity)
-        ords = ordersInfo(user=user1,med=med,name=medicine,quantity=quantity,price=price)
+        ords = ordersInfo(user=user1,med=med,name=medicine,quantity=quantity,price=price,fname=fname)
         ords.save()
         return redirect("buymed",med.id)
         
 def order(request,pk):
+    total = 0
     if request.method == "GET":
         user = User.objects.get(username=request.user.username)
         med = medical.objects.get(id = pk)
         ords = ordersInfo.objects.filter(user=user,med=med)
+        for ord in ords:
+            total = total + ord.price
         u = userInfo.objects.get(user=user)
         date1 = datetime.datetime.now()
         return render(request,"user/order_details.html",{
             'ords':ords,
             'med':med,
             'u':u,
-            'date':date1
+            'date':date1,
+            'total':total
         })
     
     

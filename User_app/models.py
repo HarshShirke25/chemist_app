@@ -11,11 +11,12 @@ class userInfo(models.Model):
     address = models.TextField(max_length=200,default=False)
     
     def __str__(self):
-        return self.user.username
+        return self.name
     
 class ordersInfo(models.Model):
     user = models.ForeignKey(to=User,on_delete=models.CASCADE,default=False)
     med = models.ForeignKey(to=medical,on_delete=models.CASCADE,default=False)
+    fname = models.CharField(max_length=50,default=False)
     name = models.CharField(max_length=50)
     quantity = models.IntegerField(default=0)
     price = models.IntegerField(default=0)

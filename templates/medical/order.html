@@ -3,7 +3,44 @@
 
 {% block body %}
 
-<h1 style="text-align: center; padding-top: 6%;">Medical Order page</h1>
+<h1 style="text-align: center; padding-top: 6%; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-left: 5%">Medical Order page</h1>
+
+<div style="padding-left: 20%; padding-right: 5%; padding-top: 2%;">
+
+    <table class="table">
+        <thead>
+          <tr class="table-primary">
+           
+            <th scope="col">Medicine</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Bought By</th>
+        
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for ord in ords  %}
+
+        <tr>
+            
+            <td><b>{{ord.name}}</b></td>
+            <td>{{ord.quantity}}</td>
+            <td>{{ord.price}}</td>
+            <td>{{ord.fname}}</td>
+        
+        
+          </tr>
+        
+        {% endfor %}
+
+          
+          
+         
+        </tbody>
+      </table>
+
+</div>
 
 {% endblock body %}
 
