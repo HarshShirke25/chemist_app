@@ -20,7 +20,9 @@ def stocks(request):
     return render(request,'user/stocks.html',{
         'ords':ords
     })
-
+    
+    
+@login_required
 def userinfo(request):
     if request.method == "GET":
         user = User.objects.get(username=request.user.username)
@@ -51,6 +53,7 @@ def userinfo(request):
             return redirect("userinfo")
     return render(request,"user/userInfo.html")
 
+@login_required
 def medicalstores(request):
     if request.method == "GET":
         user1 = User.objects.get(username=request.user.username)
@@ -58,7 +61,8 @@ def medicalstores(request):
         return render(request,"user/medicalstores.html",{
         'medicals':medicals
       })
-        
+
+@login_required     
 def medinfo(request,pk):
     
     if request.method == "GET":
@@ -70,7 +74,7 @@ def medinfo(request,pk):
         })
         
 
-        
+@login_required        
 def buymed(request,pk):
     og_price=0
     
@@ -107,7 +111,8 @@ def buymed(request,pk):
         ords = ordersInfo(user=user1,med=med,name=medicine,quantity=quantity,price=price,fname=fname)
         ords.save()
         return redirect("buymed",med.id)
-        
+    
+@login_required        
 def order(request,pk):
     total = 0
     if request.method == "GET":

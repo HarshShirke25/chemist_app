@@ -4,15 +4,16 @@
 
 
 <h1 style="padding-top:6%; margin-left:10%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Medical Stores</h1>
+<hr style="border:2px solid black;">
 <div class="container-fluid" style="padding:3% 2% 0 28%;">
     <div class="row">
         {% for medical in medicals  %}
-        <div class="col-lg-3" style="box-shadow:1px 1px black; text-align:center; border-radius:10%; background-image: linear-gradient(rgb(163, 163, 228),powderblue); margin: 0 2% 3% 1%; padding-bottom: 110px">
-            <p style="font-size: larger; text-align: center; margin-top: 10%; position: relative; top: 20%;"><b>{{medical.name_of_med}}</b></p>
-            <p style="font-size: larger; text-align: center; position: relative; top: 20%;">Address:{{medical.address}}</p>
-            <p style="font-size: larger; text-align: center; position: relative; top: 20%;">Established:{{medical.est}}</p>
-            <p style="font-size: larger; text-align: center; position: relative; top: 20%;">Contact:{{medical.contact}}</p>
-            <a type="button" href="{% url 'medinfo' medical.id %}" style="position: relative; top: 25%; border-radius: 20%;" class="btn btn-lg btn-primary">Info</a>
+        <div class="col-lg-3" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); text-align:center; border-radius:5%; background-color: rgb(163, 212, 235); margin: 0 2% 3% 1%; padding-bottom: 100px">
+            <p style="font-size: large; text-align: center; margin-top: 10%; position: relative; top: 20%; font-family:cursive;"><b>{{medical.name_of_med}}</b></p>
+            <p style="font-size: large; text-align: center; position: relative; top: 20%;">Address:{{medical.address}}</p>
+            <p style="font-size: large; text-align: center; position: relative; top: 20%;">Established:{{medical.est}}</p>
+            <p style="font-size: large; text-align: center; position: relative; top: 20%;">Contact:{{medical.contact}}</p>
+            <a type="button" href="{% url 'medinfo' medical.id %}" style="position: relative; top: 25%; border-radius: 20%; font-family: cursive;" class="btn btn-lg btn-primary">Info</a>
 
         </div>
         {% endfor %}

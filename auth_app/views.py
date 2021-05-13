@@ -21,11 +21,11 @@ def login(request):
                 if have_group(user,"MEDICAL"):
                     auth.login(request,user)
                     messages.success(request,"Logged In Successfully!")
-                    return redirect('orders')
+                    return redirect('info')
                 elif have_group(user,"USER"):
                     auth.login(request,user)
                     messages.success(request,"Logged In Successfully")
-                    return redirect('medicalstores')
+                    return redirect('userinfo')
         else:
             messages.error(request,"Enter all fields")
             return render(request,"auth/login.html")

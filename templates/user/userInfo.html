@@ -3,7 +3,7 @@
 {% block body  %}
 
 <h1 style="padding-top:7%; margin-left: 9%; border: 5px solid black;">Your Information</h1>
-<div style=" position: relative; left: 43%;">
+<div style=" position: relative; left: 43%; margin-top: 5%;">
     
            <form action="{% url 'userinfo' %}" method="POST">
                {% csrf_token %}
